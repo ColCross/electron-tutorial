@@ -8,7 +8,12 @@ function createWindow() {
     mainWindow = new BrowserWindow({ width : 1500, height: 1000 });
 
     // Load our static html file into the window
-    mainWindow.loadFile('app/index.html')
+    mainWindow.loadFile('app/index.html');
+
+    mainWindow.on('closed', function () {
+        // Kill window object
+        mainWindow = null
+    });
 }
 
 // Called once app finishes loading
